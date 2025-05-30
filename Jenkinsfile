@@ -15,7 +15,7 @@ pipeline {
 		stage ('Build') {
 			steps {
 				// sh 'mvn --version'
-				sh 'node --vebrsion'
+				sh 'node --version'
 				echo "Build"
 			}
 		}
