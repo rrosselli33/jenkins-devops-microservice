@@ -8,15 +8,20 @@
 
 // DECLARATIVE approach
 pipeline {
-	// agent any
+	agent any
 	// agent	{ docker { image 'maven:3.6.3'} }	
-	agent	{ docker { image 'node:24.1'} }	
+	// agent	{ docker { image 'node:24.1'} }	
 	stages {
 		stage ('Build') {
 			steps {
 				// sh 'mvn --version'
-				sh 'node --version'
+				// sh 'node --version'
 				echo "Build"
+				echo "PATH - $PATH"
+				echo "BUILD_NUMBER - $env."
+				echo "BUILD_ID - $env.BUILD_ID"
+				echo "BUILD_TAG - $env.BUILD_TAG"
+				echo "BUILD_URL - $env.BUILD_URL"
 			}
 		}
 		stage ('Test') {
