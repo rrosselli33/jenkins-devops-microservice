@@ -8,16 +8,15 @@
 
 // DECLARATIVE approach
 pipeline {
-	agent any
+	// agent any
+	agent	{ docker { image 'maven:3.6.3'} }	
 	stages {
 		stage ('Build') {
 			steps {
+				sh 'mvn --version'
 				echo "Build"
-				// echo "Test"  # V1 : All 'steps' in 1 'stage'
-				// echo "Integration Test"
 			}
 		}
-		// V2: add stages : 
 		stage ('Test') {
 			steps {
 				echo "Test"
